@@ -31,7 +31,7 @@ main {
     justify-content: center;
     align-items: center;
 }
-#ioField {
+#io {
     border: red solid 1px;
     width: 90%;
     height: 70%;
@@ -41,6 +41,9 @@ main {
     justify-content: center;
     align-items: center;
     font-size: 2em;
+}
+.keys:hover {
+    background-color: lightgrey;
 }
 #zero {
     grid-column: 1/3;
