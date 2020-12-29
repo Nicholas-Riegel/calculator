@@ -32,9 +32,12 @@ main {
     align-items: center;
 }
 #io {
+    text-align: right;
     border: red solid 1px;
     width: 90%;
     height: 70%;
+    font-size: 1.8em;
+    font-family: 'Times New Roman', Times, serif;
 }
 .keys {
     display: flex;
