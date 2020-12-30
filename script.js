@@ -28,11 +28,12 @@ document.getElementById('ac').addEventListener('click', ac);
 
 // global variables
 
-let arr1 = [];
-let arr2 = []
-let x, result;
+let arr1 = []; // for operations
+let arr2 = []; // for display
+let x = 0 ; // tells 'operation' and 'equals' function what operator was pushed. This is necessary because the operator can't run until the second number is entered.
+let result; // result of operations
 
-// enter numbers function
+// enter numbers function: enters numbers into the display;
 
 function enterNum(num){
     arr2.push(num)
@@ -40,45 +41,68 @@ function enterNum(num){
     document.getElementById('io').value = arr2.join('');
 }
 
-// operator functions 
+// operator functions: the first four begin by running the 'operation' function in order to deal with chained operations (e.g. 5 + 4 -3, etc.)
 
 function plus(){
+    operation();
     x=1;
     arr1.push(document.getElementById('io').value);
     arr2 = [];
 }
 function minus(){
+    operation();
     x=2;
     arr1.push(document.getElementById('io').value);
     arr2 = [];
 }
 function times(){
+    operation();
     x=3;
     arr1.push(document.getElementById('io').value);
     arr2 = [];
 }
 function divide(){
+    operation();
     x=4;
     arr1.push(document.getElementById('io').value);
     arr2 = [];
 }
 function percent(){
     document.getElementById('io').value = document.getElementById('io').value /100;
+    arr2 = [];
 }
 function plusMinus(){
     let m = document.getElementById('io').value;
-    console.log(m)
     if (m > 0){
         document.getElementById('io').value = "-" + m;
+        arr2 = [];
     }
     else if (m < 0){
-        document.getElementById('io').value = m.slice(1); 
+        document.getElementById('io').value = m.slice(1);
+        arr2 = []; 
+    }
+}
+
+// operation function
+
+function operation(){
+    if (x===0){return ;}
+    else{
+    arr1.push(document.getElementById('io').value);
+    console.log(arr1)
+    if (x===1){result = arr1.reduce(add)}
+    else if (x===2){result = arr1.reduce(subtract)}
+    else if (x===3){result = arr1.reduce(multiply)}     else if (x===4){result = arr1.reduce(divide2)}
+    document.getElementById('io').value = Math.round(result * 1000)/1000;
+    arr1=[];
+    arr2=[];
+    x=0;
     }
 }
 
 // equals function
 
-function operation(){
+function equals(){
     arr1.push(document.getElementById('io').value);
     console.log(arr1)
     if (x===1){result = arr1.reduce(add)}
@@ -95,7 +119,7 @@ function add(total, num){
 function subtract(total, num){
     return parseFloat(total) - parseFloat(num);
 }
-function multiply(total, num){
+function multiply(total, num){     
     return parseFloat(total) * parseFloat(num);
 }
 function divide2(total, num){
@@ -107,8 +131,7 @@ function divide2(total, num){
 function ac(){
     arr1 = [];
     arr2 = [];
-    x = '';
+    x = 0;
     result = '';
-    document.getElementById('io').value = 0;
+    document.getElementById('io').value = '';
 }
-
