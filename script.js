@@ -18,7 +18,7 @@ document.getElementById('plus').addEventListener('click', plus);
 document.getElementById('minus').addEventListener('click', minus);
 document.getElementById('times').addEventListener('click', times);
 document.getElementById('divide').addEventListener('click', divide);
-document.getElementById('equals').addEventListener('click', operation);
+document.getElementById('equals').addEventListener('click', equals);
 document.getElementById('percent').addEventListener('click', percent);
 document.getElementById('plusMinus').addEventListener('click', plusMinus);
 
@@ -88,30 +88,66 @@ function plusMinus(){
 function operation(){
     if (x===0){return ;}
     else{
-    arr1.push(document.getElementById('io').value);
-    console.log(arr1)
-    if (x===1){result = arr1.reduce(add)}
-    else if (x===2){result = arr1.reduce(subtract)}
-    else if (x===3){result = arr1.reduce(multiply)}     else if (x===4){result = arr1.reduce(divide2)}
-    document.getElementById('io').value = Math.round(result * 1000)/1000;
+        arr1.push(document.getElementById('io').value);
+        console.log(arr1)
+        if (x===1){
+            result = arr1.reduce(add);
+            document.getElementById('io').value = result;
+        }
+        else if (x===2){
+            result = arr1.reduce(subtract);
+            document.getElementById('io').value = result;
+        }
+        else if (x===3){
+            result = arr1.reduce(multiply)
+            document.getElementById('io').value = result;
+        }
+        else if (x===4){
+            if (arr1.reduce(divide2) === Infinity){
+                document.getElementById('io').value = "Undefined";
+            }
+            else {
+            result = arr1.reduce(divide2);
+            document.getElementById('io').value = Math.round(result * 1000)/1000;
+            }
+        }
+    }
     arr1=[];
     arr2=[];
-    x=0;
-    }
+    x = 0;
 }
 
 // equals function
 
 function equals(){
+    
     arr1.push(document.getElementById('io').value);
     console.log(arr1)
-    if (x===1){result = arr1.reduce(add)}
-    else if (x===2){result = arr1.reduce(subtract)}
-    else if (x===3){result = arr1.reduce(multiply)}
-    else if (x===4){result = arr1.reduce(divide2)}
-    document.getElementById('io').value = Math.round(result * 1000)/1000;
+    
+    if (x===1){
+        result = arr1.reduce(add);
+        document.getElementById('io').value = result;
+    }
+    else if (x===2){
+        result = arr1.reduce(subtract);
+        document.getElementById('io').value = result;
+    }
+    else if (x===3){
+        result = arr1.reduce(multiply)
+        document.getElementById('io').value = result;
+    }
+    else if (x===4){
+        if (arr1.reduce(divide2) === Infinity){
+            document.getElementById('io').value = "Undefined";
+        }
+        else {
+            result = arr1.reduce(divide2);
+            document.getElementById('io').value = Math.round(result * 1000)/1000;
+        }
+    }
     arr1=[];
     arr2=[];
+    x = 0;
 }
 function add(total, num){
     return parseFloat(total) + parseFloat(num);
