@@ -103,7 +103,7 @@ function operation(){
             document.getElementById('io').value = result;
         }
         else if (x===4){
-            if (arr1.reduce(divide2) === Infinity){
+            if (arr1.reduce(divide2) === Infinity || arr1.reduce(divide2) === -Infinity){
                 document.getElementById('io').value = "Undefined";
             }
             else {
@@ -137,7 +137,7 @@ function equals(){
         document.getElementById('io').value = result;
     }
     else if (x===4){
-        if (arr1.reduce(divide2) === Infinity){
+        if (arr1.reduce(divide2) === Infinity || arr1.reduce(divide2) === -Infinity){
             document.getElementById('io').value = "Undefined";
         }
         else {
