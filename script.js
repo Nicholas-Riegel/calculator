@@ -33,12 +33,17 @@ let arr2 = []; // for display
 let x = 0 ; // tells 'operation' and 'equals' function what operator was pushed. This is necessary because the operator can't run until the second number is entered.
 let result; // result of operations
 
-// enter numbers function: enters numbers into the display;
+// enter numbers function: enters numbers into the display. disallows multiply decimals;
 
 function enterNum(num){
-    arr2.push(num)
-    console.log(arr2)
-    document.getElementById('io').value = arr2.join('');
+    if (num === '.' && arr2.some(x=>x=== '.')){
+        document.getElementById('io').value = "Error: Decimal already exists!"
+    }
+    else {
+        arr2.push(num)
+        console.log(arr2)
+        document.getElementById('io').value = arr2.join('');
+    }
 }
 
 // operator functions: the first four begin by running the 'operation' function in order to deal with chained operations (e.g. 5 + 4 -3, etc.)
