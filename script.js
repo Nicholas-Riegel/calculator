@@ -1,42 +1,27 @@
 // number btns
 
 document.getElementById('zero').addEventListener('click', function(){enterNum(0)});
-
 document.getElementById('1').addEventListener('click', function(){enterNum(1)});
-
 document.getElementById('2').addEventListener('click', function(){enterNum(2)});
-
 document.getElementById('3').addEventListener('click', function(){enterNum(3)});
-
 document.getElementById('4').addEventListener('click', function(){enterNum(4)});
-
 document.getElementById('5').addEventListener('click', function(){enterNum(5)});
-
 document.getElementById('6').addEventListener('click', function(){enterNum(6)});
-
 document.getElementById('7').addEventListener('click', function(){enterNum(7)});
-
 document.getElementById('8').addEventListener('click', function(){enterNum(8)});
-
 document.getElementById('9').addEventListener('click', function(){enterNum(9)});
-
 document.getElementById('period').addEventListener('click', function(){enterNum('.')});
 
 // operator btns
 
 document.getElementById('plus').addEventListener('click', plus);
-
 document.getElementById('minus').addEventListener('click', minus);
-
 document.getElementById('times').addEventListener('click', times);
-
 document.getElementById('divide').addEventListener('click', divide);
-
 document.getElementById('equals').addEventListener('click', operation);
-
 document.getElementById('percent').addEventListener('click', percent);
-
 document.getElementById('plusMinus').addEventListener('click', plusMinus);
+
 // clear all btn
 
 document.getElementById('ac').addEventListener('click', ac);

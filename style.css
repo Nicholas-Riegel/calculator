@@ -48,6 +48,9 @@ main {
 .keys:hover {
     background-color: lightgrey;
 }
+.keys:active {
+    background-color: gray;
+}
 #zero {
     grid-column: 1/3;
 }
