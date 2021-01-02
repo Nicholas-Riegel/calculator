@@ -33,7 +33,7 @@ let arr2 = []; // for display
 let x = 0 ; // tells 'operation' and 'equals' function what operator was pushed. This is necessary because the operator can't run until the second number is entered.
 let result; // result of operations
 
-// enter numbers function: enters numbers into the display. disallows multiply decimals;
+// enter numbers function: enters numbers into the display. disallows multiple decimals;
 
 function enterNum(num){
     if (num === '.' && arr2.some(x=>x=== '.')){
